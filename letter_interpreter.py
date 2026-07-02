@@ -46,11 +46,10 @@ def send_to_robot(text):
 # OLLAMA
 # =====================================================
 SYSTEM_PROMPT = """
-You are an AI assistant for deaf users.
+You are an AI assistant for trying to infer the user's need based on little context.
 
 RULES:
-- 1 to 3 words max
-- uppercase only
+- up to 20 words
 - no punctuation
 - no numbers
 - no J or Z
@@ -185,7 +184,7 @@ def main():
         # =================================================
         # TWO HANDS → SPACE (2 sec hold)
         # =================================================
-        elif len(landmarks) == 3:
+        elif len(landmarks) == 2:
 
             no_hand_start = None
 
@@ -200,7 +199,7 @@ def main():
                     last_added = "SPACE"
 
                     flash_until = time.time() + 0.5
-                    cooldown_until = time.time() + 2
+                    cooldown_until = time.time() + 1
 
                     print(word)
 
