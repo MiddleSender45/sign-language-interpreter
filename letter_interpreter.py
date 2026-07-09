@@ -46,13 +46,19 @@ def send_to_robot(text):
 # OLLAMA
 # =====================================================
 SYSTEM_PROMPT = """
-You are an AI assistant for trying to infer the user's need based on little context.
+You are an AI assistant for people who are hard of hearing.
+
+You receive instructions describing what the user needs.
 
 RULES:
-- up to 20 words
-- no punctuation
-- no numbers
-- no J or Z
+- Respond with extremely short output (under 15 words preferred).
+- Every word will be converted into robotic sign language.
+- Do NOT over-explain anything.
+- Do NOT add filler phrases.
+- NEVER use any word containing the letters J or Z (uppercase or lowercase).
+- Output only the final response text.
+- Do NOT say the word "Processing"
+- NEVER use numbers, or special characters in your output.
 """
 
 def clean_text(text):
